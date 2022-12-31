@@ -1,26 +1,18 @@
-import {StyleSheet, Text, View} from "react-native";
+import { Text, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {useSelector} from "react-redux";
 import {selectOrigin} from "../../redux/slices/navSlice";
+import NavOptions from "./NavOptions";
 
 const HomeScreen = () => {
     const origin = useSelector(selectOrigin);
     console.log(origin);
     return(
-        <View style={styles.container}>
-            <Text>This is really awesome Welcome on your app!</Text>
-            <StatusBar style="auto" />
+        <View className="flex-1 bg-white px-4 pt-6">
+            <Text className="color-black-300 font-semibold text-5xl antialiased">Uber</Text>
+            <NavOptions/>
         </View>
     );
 }
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
