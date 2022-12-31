@@ -1,5 +1,5 @@
-import {Text, View} from "react-native";
-import {SafeAreaView} from "react-native-safe-area-context";
+import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const RideOptionsCard = () => {
     return (
@@ -7,5 +7,5 @@ const RideOptionsCard = () => {
             <Text>RideOptionsCard Card Screen</Text>
         </SafeAreaView>
     );
-}
+};
 export default RideOptionsCard;
