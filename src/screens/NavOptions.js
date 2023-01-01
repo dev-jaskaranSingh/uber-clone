@@ -25,6 +25,7 @@ const NavOptions = () => {
             className={'mt-6'}
             data={data}
             horizontal
+            showsHorizontalScrollIndicator={false}
             renderItem={({ item, index }) => (
                 <TouchableOpacity
                     key={index}

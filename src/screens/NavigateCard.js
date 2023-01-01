@@ -3,8 +3,11 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { setDestination, setOrigin } from '../../redux/slices/navSlice';
 import { useDispatch } from 'react-redux';
 import { GOOGLE_MAP_API_KEY } from 'env';
+import { useNavigation } from '@react-navigation/native';
+import Favorites from './Favorites';
 const NavigateCard = () => {
     const dispatch = useDispatch();
+    const navigation = useNavigation();
     return (
         <View className={'flex-1 bg-white px-4'}>
             <Text className={'text-gray-700 bold text-center text-2xl my-3.5'}>
@@ -38,9 +41,13 @@ const NavigateCard = () => {
                             description: data.description
                         })
                     );
+                    navigation.navigate('RideOptionsCard');
                 }}
                 returnKeyType={'search'}
             />
+            <View className="mt-2">
+                <Favorites />
+            </View>
         </View>
     );
 };

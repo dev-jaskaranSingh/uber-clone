@@ -3,12 +3,25 @@ import MapView, { Marker } from 'react-native-maps';
 import { useSelector } from 'react-redux';
 import { selectDestination, selectOrigin } from '../../redux/slices/navSlice';
 import MapViewDirections from 'react-native-maps-directions';
+import { useRef, useEffect } from 'react';
+
 const Map = () => {
     const origin = useSelector(selectOrigin);
     const destination = useSelector(selectDestination);
-    console.log(destination);
+    const mapRef = useRef(null);
+
+
+    useEffect(() => {
+        if(!origin || !destination) return;
+
+        mapRef.current.fitToSuppliedMarkers(['origin', 'destination'],{
+            edgePadding : {top: 50, left: 50, right: 50, bottom: 50}
+        });
+
+    }, [origin, destination]);
     return (
         <MapView
+            ref={mapRef}
             initialRegion={{
                 latitude: origin?.location?.lat,
                 longitude: origin?.location?.lng,
@@ -21,27 +34,43 @@ const Map = () => {
             {origin && destination && (
                 <MapViewDirections
                     origin={origin.description}
-                    destination={destination.destination}
+                    destination={destination.description}
                     apikey={GOOGLE_MAP_API_KEY}
-                    strokeColor="dodgerblue"
+                    strokeColor="black"
                     strokeWidth={3}
                 />
             )}
 
-            <Marker
-                key={231}
-                coordinate={{
-                    latitude: origin?.location?.lat,
-                    longitude: origin?.location?.lng
-                }}
-                title={origin?.description}
-                description={origin?.description}
-                image={{
-                    uri: 'https://img.icons8.com/color/96/null/marker--v1.png',
-                    height: 30,
-                    width: 30
-                }}
-            />
+            {origin && (
+                <Marker
+                    key={231}
+                    coordinate={{
+                        latitude: origin?.location?.lat,
+                        longitude: origin?.location?.lng
+                    }}
+                    title={origin?.description}
+                    description={origin?.description}
+                    image={{
+                        uri: 'https://img.icons8.com/color/96/null/marker--v1.png',
+                        height: 30,
+                        width: 30
+                    }}
+                    identifier="origin"
+                />
+            )}
+
+            {destination && (
+                <Marker
+                    key={2341}
+                    coordinate={{
+                        latitude: destination?.location?.lat,
+                        longitude: destination?.location?.lng
+                    }}
+                    title={destination?.description}
+                    description={destination?.description}
+                    identifier="destination"
+                />
+            )}
         </MapView>
     );
 };

@@ -1,17 +1,12 @@
-import { Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-    selectOrigin,
-    setDestination,
-    setOrigin
-} from '../../redux/slices/navSlice';
-import NavOptions from './NavOptions';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAP_API_KEY } from 'env';
+import { Text, View } from 'react-native';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useDispatch } from 'react-redux';
+import { setDestination, setOrigin } from '../../redux/slices/navSlice';
+import Favorites from './Favorites';
+import NavOptions from './NavOptions';
 const HomeScreen = () => {
-    const origin = useSelector(selectOrigin);
     const dispatch = useDispatch();
     return (
         <SafeAreaView className="flex-1 bg-white px-4 pt-6">
@@ -46,13 +41,15 @@ const HomeScreen = () => {
                                 description: data.description
                             })
                         );
-                        dispatch(setDestination(null));
                     }}
                     returnKeyType={'search'}
                 />
             </View>
             <View>
                 <NavOptions />
+            </View>
+            <View className="mt-2">
+                <Favorites/>
             </View>
         </SafeAreaView>
     );
