@@ -1,0 +1,8 @@
+{
+    "files.autoSave": "onFocusChange",
+    "terminal.integrated.fontFamily": "FantasqueSansMono NF",
+    "terminal.integrated.fontSize": 14,
+    "cSpell.words": [
+        "apikey"
+    ]
+}

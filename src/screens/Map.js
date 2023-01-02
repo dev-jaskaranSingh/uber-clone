@@ -1,24 +1,26 @@
 import { GOOGLE_MAP_API_KEY } from 'env';
+import { useEffect, useRef } from 'react';
 import MapView, { Marker } from 'react-native-maps';
+import MapViewDirections from 'react-native-maps-directions';
 import { useSelector } from 'react-redux';
 import { selectDestination, selectOrigin } from '../../redux/slices/navSlice';
-import MapViewDirections from 'react-native-maps-directions';
-import { useRef, useEffect } from 'react';
 
 const Map = () => {
     const origin = useSelector(selectOrigin);
     const destination = useSelector(selectDestination);
     const mapRef = useRef(null);
 
-
+    /* A hook that is called when the component is mounted and when the origin or destination changes.
+    It is used to fit the map to the origin and destination markers. */
     useEffect(() => {
-        if(!origin || !destination) return;
+        if (!origin || !destination) return;
 
-        mapRef.current.fitToSuppliedMarkers(['origin', 'destination'],{
-            edgePadding : {top: 50, left: 50, right: 50, bottom: 50}
+        /* Fitting the map to the origin and destination markers. */
+        mapRef.current.fitToSuppliedMarkers(['origin', 'destination'], {
+            edgePadding: { top: 50, left: 50, right: 50, bottom: 50 }
         });
-
     }, [origin, destination]);
+
     return (
         <MapView
             ref={mapRef}
@@ -74,4 +76,5 @@ const Map = () => {
         </MapView>
     );
 };
+
 export default Map;

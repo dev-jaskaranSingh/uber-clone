@@ -49,7 +49,7 @@ const HomeScreen = () => {
                 <NavOptions />
             </View>
             <View className="mt-2">
-                <Favorites/>
+                <Favorites />
             </View>
         </SafeAreaView>
     );

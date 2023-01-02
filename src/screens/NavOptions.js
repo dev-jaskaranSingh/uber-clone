@@ -1,6 +1,6 @@
-import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { selectOrigin } from '../../redux/slices/navSlice';
 const data = [

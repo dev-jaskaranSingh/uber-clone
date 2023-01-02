@@ -1,9 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
+import { GOOGLE_MAP_API_KEY } from 'env';
 import { Text, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { setDestination, setOrigin } from '../../redux/slices/navSlice';
 import { useDispatch } from 'react-redux';
-import { GOOGLE_MAP_API_KEY } from 'env';
-import { useNavigation } from '@react-navigation/native';
+import { setDestination } from '../../redux/slices/navSlice';
 import Favorites from './Favorites';
 const NavigateCard = () => {
     const dispatch = useDispatch();

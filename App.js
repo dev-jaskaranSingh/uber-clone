@@ -1,12 +1,12 @@
-import { Provider, useSelector } from 'react-redux';
-import { store } from './redux/store';
-import HomeScreen from './src/screens/HomeScreen';
-import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MapScreen from './src/screens/MapScreen';
-import FoodScreen from './src/screens/FoodScreen';
+import { StatusBar } from 'expo-status-bar';
 import { KeyboardAvoidingView, Platform } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import FoodScreen from './src/screens/FoodScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import MapScreen from './src/screens/MapScreen';
 
 export default function App() {
     const Stack = createNativeStackNavigator();
