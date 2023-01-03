@@ -3,7 +3,6 @@ import { Text, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
-import { setDestination, setOrigin } from '../../redux/slices/navSlice';
 import Favorites from './Favorites';
 import NavOptions from './NavOptions';
 const HomeScreen = () => {
