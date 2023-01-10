@@ -67,8 +67,8 @@ const Map = () => {
                     description={origin?.description}
                     image={{
                         uri: 'https://img.icons8.com/stickers/100/null/map-pin.png',
-                        height: 30,
-                        width: 30
+                        height: 60,
+                        width: 60
                     }}
                     identifier="origin"
                 />
@@ -86,8 +86,8 @@ const Map = () => {
                     identifier="destination"
                     image={{
                         uri: 'https://img.icons8.com/stickers/100/null/map-pin.png',
-                        height: 30,
-                        width: 30
+                        height: 60,
+                        width: 60
                     }}
                 />
             )}
