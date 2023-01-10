@@ -1,14 +1,15 @@
 import { GOOGLE_MAP_API_KEY } from 'env';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
-import { useSelector } from 'react-redux';
-import { selectDestination, selectOrigin } from '../../redux/slices/navSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectDestination, selectOrigin, setTravelTimeInformation } from '../../redux/slices/navSlice';
 
 const Map = () => {
     const origin = useSelector(selectOrigin);
-    const destination = useSelector(selectDestination);
+    const destination = useSelector(selectDestination); 
     const mapRef = useRef(null);
+    const dispatch = useDispatch();
 
     /* A hook that is called when the component is mounted and when the origin or destination changes.
     It is used to fit the map to the origin and destination markers. */
@@ -19,7 +20,20 @@ const Map = () => {
         mapRef.current.fitToSuppliedMarkers(['origin', 'destination'], {
             edgePadding: { top: 50, left: 50, right: 50, bottom: 50 }
         });
-    }, [origin, destination]);
+
+        const getTravelTime = async () => {
+            const URL = `https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&destinations=${destination.description}&origins=${origin.description}&key=${GOOGLE_MAP_API_KEY}`;
+            fetch(URL)
+                .then((data) => data.json())
+                .then((data) => dispatch(setTravelTimeInformation(data.rows[0].elements[0])))
+                .catch((err) => console.log(err));
+        }
+
+        getTravelTime();
+
+        
+    }, [origin, destination, GOOGLE_MAP_API_KEY]);
+    console.log();
 
     return (
         <MapView
