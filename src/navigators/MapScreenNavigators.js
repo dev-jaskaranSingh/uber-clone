@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import NavigateCards from '../screens/NavigateCards';
+import RideOptionsCard from '../screens/RideOptionsCard';
 
 export function MapScreenNavigators() {
     const Stack = createNativeStackNavigator();
