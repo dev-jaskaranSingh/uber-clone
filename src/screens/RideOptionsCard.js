@@ -31,8 +31,6 @@ const RideOptionsCard = () => {
     const [activeItem, setActiveItem] = useState(null);
     const travelData = useSelector(selectTravelTime);
     const navigation = useNavigation();
-    console.log(travelData);
-    console.log(!activeItem);
 
     const SURGE_CHARGE_RATE = 1.2;
     return (

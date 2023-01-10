@@ -33,7 +33,6 @@ const Map = () => {
 
         
     }, [origin, destination, GOOGLE_MAP_API_KEY]);
-    console.log();
 
     return (
         <MapView
@@ -67,7 +66,7 @@ const Map = () => {
                     title={origin?.description}
                     description={origin?.description}
                     image={{
-                        uri: 'https://img.icons8.com/color/96/null/marker--v1.png',
+                        uri: 'https://img.icons8.com/stickers/100/null/map-pin.png',
                         height: 30,
                         width: 30
                     }}
@@ -85,6 +84,11 @@ const Map = () => {
                     title={destination?.description}
                     description={destination?.description}
                     identifier="destination"
+                    image={{
+                        uri: 'https://img.icons8.com/stickers/100/null/map-pin.png',
+                        height: 30,
+                        width: 30
+                    }}
                 />
             )}
         </MapView>
