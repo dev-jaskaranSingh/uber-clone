@@ -94,7 +94,7 @@ const RideOptionsCard = () => {
                                     style: 'currency',
                                     currency: 'INR'
                                 }).format(
-                                    (travelData.duration.value *
+                                    (travelData?.duration?.value *
                                         SURGE_CHARGE_RATE *
                                         item.multiplier) /
                                         100
