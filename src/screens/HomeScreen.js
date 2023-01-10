@@ -5,6 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
 import Favorites from './Favorites';
 import NavOptions from './NavOptions';
+import { setOrigin } from '../../redux/slices/navSlice';
+
 const HomeScreen = () => {
     const dispatch = useDispatch();
     return (

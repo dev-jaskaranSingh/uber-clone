@@ -21,21 +21,7 @@ export function NavOptionItem({ origin, onPress, item }) {
             onPress={onPress}
             disabled={!origin}
         >
-            <View className={'justify-center items-center mb-2'}>
-                <Image
-                    source={{
-                        uri: item.image
-                    }}
-                    style={{
-                        width: 100,
-                        height: 100,
-                        resizeMode: 'contain'
-                    }}
-                />
-                <Text className={'text-lg mt-2 font-bold mt-2'}>
-                    {item?.title}
-                </Text>
-            </View>
+            <Component item={item}/>
             <Ionicons
                 name="arrow-forward-circle"
                 size={40}
@@ -43,5 +29,23 @@ export function NavOptionItem({ origin, onPress, item }) {
                 className={'mt-2'}
             />
         </TouchableOpacity>
+    );
+}
+
+function Component({ item }) {
+    return (
+        <View className={'justify-center items-center mb-2'}>
+            <Image
+                source={{
+                    uri: item.image
+                }}
+                style={{
+                    width: 100,
+                    height: 100,
+                    resizeMode: 'contain'
+                }}
+            />
+            <Text className={'text-lg mt-2 font-bold mt-2'}>{item?.title}</Text>
+        </View>
     );
 }

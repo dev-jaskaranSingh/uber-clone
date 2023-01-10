@@ -1,6 +1,7 @@
 import { View } from 'react-native';
-import { MapScreenNavigators } from '../navigators/MapScreenNavigators';
+
 import Map from './Map';
+import { MapScreenNavigators } from './../navigators/MapScreenNavigators';
 
 const MapScreen = () => {
     return (
@@ -8,7 +9,7 @@ const MapScreen = () => {
             <View className={'h-1/2'}>
                 <Map />
             </View>
-            <MapScreenNavigators />
+            <MapScreenNavigators/>
         </>
     );
 };

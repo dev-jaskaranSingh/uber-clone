@@ -20,8 +20,10 @@ const data = [
 ];
 
 const NavOptions = () => {
+    
     const navigation = useNavigation();
     const origin = useSelector(selectOrigin);
+
     const renderItem = ({ item, index }) => (
         <NavOptionItem
             key={index}
